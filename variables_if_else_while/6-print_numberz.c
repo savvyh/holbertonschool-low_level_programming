@@ -1,6 +1,6 @@
 #include <stdio.h>
 /**
- * main - print single digit number 
+ * main - print single digit number
  *
  * Return: Always 0 (Success)
 */
@@ -12,7 +12,7 @@ for (digit_number = '0'; digit_number <= '9'; digit_number++)
 {
 	putchar(digit_number);
 }
-  	putchar('\n');
+	putchar('\n');
 
 return (0);
 }
