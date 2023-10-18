@@ -16,19 +16,11 @@ void times_table(void)
 
 			if (result < 10)
 			{
-				if (figure > 0)
-				{
 					_putchar(' ');
-					_putchar(' ');
-				}
 					_putchar(result + '0');
 			}
 			else
 			{
-				if (figure > 0)
-				{
-					_putchar(' ');
-				}
 					_putchar(result / 10 + '0');
 					_putchar(result % 10 + '0');
 			}
