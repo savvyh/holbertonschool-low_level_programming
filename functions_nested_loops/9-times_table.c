@@ -13,13 +13,13 @@ void times_table(void)
 		_putchar('0');
 		_putchar(',');
 		_putchar(' ');
-	  
+
 		for (figure = 1; figure <= 9; figure++)
 		{
 			result = multiple * figure;
 
-			if (result < 10)
-			{
+				if (result < 10)
+				{
 					_putchar(' ');
 					_putchar(result + '0');
 			}
