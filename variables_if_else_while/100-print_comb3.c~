@@ -1,0 +1,25 @@
+#include <stdio.h>
+/**
+ * main - combination of two digit
+ *
+ * Return: Always 0 (Success)
+*/
+int main(void)
+{
+int first_number;
+int second_number;
+
+for (first_number = '0'; first_number <= '9'; first_number++)
+  putchar(first_number);
+
+for (second_number = '0'; second_number <= '9'; second_number++)
+{
+  putchar(second_number);
+  putchar(',');
+  putchar(' ');
+
+if (first_number != second_number)
+  putchar(first_number + second_number);
+}
+return (0);
+}
