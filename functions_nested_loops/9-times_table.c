@@ -10,7 +10,11 @@ void times_table(void)
 
 	for (multiple = 0; multiple <= 9; multiple++)
 	{
-		for (figure = 0; figure <= 9; figure++)
+		_putchar('0');
+		_putchar(',');
+		_putchar(' ');
+	  
+		for (figure = 1; figure <= 9; figure++)
 		{
 			result = multiple * figure;
 
