@@ -6,14 +6,18 @@
  */
 int main(void)
 {
-  int number, multiple_3, multiple_5;
+	int number, multiple_3, multiple_5;
 
 	for (number = 1; number <= 100 ; number++)
 	{
 		multiple_3 = number % 3;
 		multiple_5 = number % 5;
-		
-		if (multiple_3 == 0 && multiple_5 == 0)
+
+		if (number == 100)
+		{
+			printf("Buzz\n");
+		}
+		else if (multiple_3 == 0 && multiple_5 == 0)
 		{
 			printf("FizzBuzz ");
 		}
@@ -30,6 +34,5 @@ int main(void)
 			printf("%d ", number);
 		}
 	}
-	printf("\n");
 	return (0);
 }
