@@ -15,13 +15,11 @@ char *cap_string(char *str)
 		{
 			for (j = 0; symbol[j] != '\0'; j++)
 			{
+				i = 0;
+
 				if (str[i - 1] == symbol[j])
 				{
 				str[i] = str[i] - 32;
-				}
-				else if (str[i] == str[0])
-				{
-					str[i] = str[i] - 32;
 				}
 			}
 		}
