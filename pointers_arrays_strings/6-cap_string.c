@@ -11,16 +11,11 @@ char *cap_string(char *str)
 
 	for (i = 0; str[i] != '\0'; i++)
 	{
-		if (str[i] >= 'a' && str[i] <= 'z')
+		for (j = 0; symbol[j] != '\0'; j++)
 		{
-			for (j = 0; symbol[j] != '\0'; j++)
+			if ((i == 0 || str[i - 1] == symbol[j]) && (str[i] >= 'a' && str[i] <= 'z'))
 			{
-				i = 0;
-
-				if (str[i - 1] == symbol[j])
-				{
 				str[i] = str[i] - 32;
-				}
 			}
 		}
 	}
