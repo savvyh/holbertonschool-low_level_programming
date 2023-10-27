@@ -7,23 +7,18 @@
  */
 void print_diagsums(int *a, int size)
 {
-	int i;
-	int sum_diag1 = 0;
-	int sum_diag2 = 0;
+	int i, j;
+	int sum1 = 0, sum2 = 0;
 
 	for (i = 0; i < size; i++)
 	{
-		sum_diag1 = sum_diag1 + a[i * (size + 1)];
-		a = a + size;
+		sum1 += a[i * size + i];
 	}
 
-	a = a - size;
-
-	for (i = 0; i < size; i++)
+	for (i = 0, j = size - 1; i < size; i++, j--)
 	{
-		sum_diag2 = sum_diag2 + a[i * (size - 1)];
-		a = a - size;
+		sum2 += a[i * size + j];
 	}
 
-	printf("%d, %d\n", sum_diag1, sum_diag2);
+	printf("%d, %d\n", sum1, sum2);
 }
