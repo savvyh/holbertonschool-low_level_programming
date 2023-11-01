@@ -1,11 +1,11 @@
 #include "main.h"
 /**
  * function_bis - the function who calculate if prime number
- * @x: the number to divide
  * @n: the number to check
+ * @x: the number to divide
  * Return: 1 if n is prime number, else 0
  */
-int function_bis(int x, int n)
+int function_bis(int n, int x)
 {
 	if (x * x > n)
 		return (1);
