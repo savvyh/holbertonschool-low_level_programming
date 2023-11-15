@@ -5,7 +5,7 @@
  * @b: value
  * Return: sum of a + b
 */
-int op_add(int a, int b);
+int op_add(int a, int b)
 {
 	return (a + b);
 }
@@ -16,7 +16,7 @@ int op_add(int a, int b);
  * @b: value
  * Return: difference of a + b
 */
-int op_sub(int a, int b);
+int op_sub(int a, int b)
 {
 	return (a - b);
 }
@@ -27,7 +27,7 @@ int op_sub(int a, int b);
  * @b: value
  * Return: product of a + b
 */
-int op_mul(int a, int b);
+int op_mul(int a, int b)
 {
 	return (a * b);
 }
@@ -38,7 +38,7 @@ int op_mul(int a, int b);
  * @b: value
  * Return: result of the division of a + b
 */
-int op_div(int a, int b);
+int op_div(int a, int b)
 {
 	return (a / b);
 }
@@ -49,7 +49,7 @@ int op_div(int a, int b);
  * @b: value
  * Return: the remainder of the division of a + b
 */
-int op_mod(int a, int b);
+int op_mod(int a, int b)
 {
 	return (a % b);
 }
