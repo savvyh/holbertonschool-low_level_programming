@@ -1,5 +1,6 @@
 #include "3-calc.h"
-#include <stddef.h>
+#include <string.h>
+#include <stdlib.h>
 /**
  * get_op_func - function pointers
  * @s: the operator passed as argument
@@ -17,9 +18,9 @@ int (*get_op_func(char *s))(int, int)
 	};
 	int i = 0;
 
-	while (ops[i].op != NULL)
+	while (i < 5)
 	{
-		if (*s != '\0' && *s == *(ops[i].op))
+		if (strcmp(s, ops[i].op) == 0)
 			return (ops[i].f);
 
 		i++;
