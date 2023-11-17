@@ -24,7 +24,7 @@ void print_all(const char * const format, ...)
 
 	va_start(arguments, format);
 
-	while (format[index_format] && format != NULL)
+	while (format != NULL && format[index_format])
 	{
 		index_function = 0;
 
@@ -61,7 +61,7 @@ void print_a_caracter(char *separator, va_list arguments)
 */
 void print_an_integer(char *separator, va_list arguments)
 {
-	printf("%s%i", separator, va_arg(arguments, int));
+	printf("%s%d", separator, va_arg(arguments, int));
 }
 
 /**
