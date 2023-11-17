@@ -61,7 +61,7 @@ void print_a_caracter(char *separator, va_list arguments)
 */
 void print_an_integer(char *separator, va_list arguments)
 {
-	printf("%s%d", separator, va_arg(arguments, int));
+	printf("%s%i", separator, va_arg(arguments, int));
 }
 
 /**
@@ -88,5 +88,6 @@ void print_a_string_ptr(char *separator, va_list arguments)
 		printf("%s%s", separator, "(nil)");
 		return;
 	}
+
 	printf("%s%s", separator, string);
 }
