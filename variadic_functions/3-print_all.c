@@ -10,8 +10,6 @@
 void print_all(const char * const format, ...)
 {
 	va_list arguments;
-	int index_format = 0;
-	char *separator = "";
 
 	format_t format_type[] = {
 		{"c", print_a_caracter},
@@ -20,11 +18,15 @@ void print_all(const char * const format, ...)
 		{"s", print_a_string_ptr},
 	};
 
+	unsigned int index_format = 0;
+	unsigned int index_function = 0;
+	char *separator = "";
+
 	va_start(arguments, format);
 
-	while (format[index_format] != '\0' && format != NULL)
+	while (format[index_format] && format != NULL)
 	{
-		int index_function = 0;
+		index_function = 0;
 
 		while (index_function < 4)
 		{
@@ -86,6 +88,5 @@ void print_a_string_ptr(char *separator, va_list arguments)
 		printf("%s%s", separator, "(nil)");
 		return;
 	}
-	else
-		printf("%s%s", separator, string);
+	printf("%s%s", separator, string);
 }
