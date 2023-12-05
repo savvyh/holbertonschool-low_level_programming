@@ -14,18 +14,18 @@ int append_text_to_file(const char *filename, char *text_content)
 	if (filename == NULL)
 		return (-1);
 
+	file_descriptor = open(filename, O_RDWR | O_APPEND);
+	if (file_descriptor == -1)
+		return (-1);
+
 	if (text_content)
 	{
-		file_descriptor = open(filename, O_RDWR | O_APPEND);
-		if (file_descriptor == -1)
+		write_file = write(file_descriptor, text_content, _strlen(text_content));
+		if (write_file == -1)
+		{
+			close(file_descriptor);
 			return (-1);
-	}
-
-	write_file = write(file_descriptor, text_content, _strlen(text_content));
-	if (write_file == -1)
-	{
-		close(file_descriptor);
-		return (-1);
+		}
 	}
 
 	close(file_descriptor);
