@@ -3,25 +3,6 @@
 #include <stdlib.h>
 
 /**
- * create_buffer - function that create a buffer of 1024 bytes
- *
- * @file: the file to allocate memory
- *
- * Return: A pointer to the new buffer
-*/
-char *create_buffer(char *file)
-{
-	char *buffer = malloc(1024);
-
-	if (buffer == NULL)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", file);
-		exit(99);
-	}
-
-	return (buffer);
-}
-/**
  * close_file - print error if close the file_descriptor doesn't work
  *
  * @file_descriptor: the file_descriptor to be closed
@@ -53,7 +34,7 @@ void close_file(int file_descriptor)
 int main(int argc, char *argv[])
 {
 	int file_descriptor_from, file_descriptor_to, read_file, write_file;
-	char *buffer;
+	char *buffer[1024];
 
 	if (argc != 3)
 	{
