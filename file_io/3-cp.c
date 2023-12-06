@@ -2,7 +2,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-
 /**
  * create_buffer - function that create a buffer of 1024 bytes
  *
@@ -25,7 +24,7 @@ char *create_buffer(char *file)
 /**
  * close_file - print error if close the file_descriptor doesn't work
  *
- * @file_descriptor : the file_descriptor to be closed
+ * @file_descriptor: the file_descriptor to be closed
  *
  * Return: nothing
 */
