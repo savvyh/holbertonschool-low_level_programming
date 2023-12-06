@@ -31,3 +31,19 @@ int append_text_to_file(const char *filename, char *text_content)
 	close(file_descriptor);
 	return (1);
 }
+/**
+ * _strlen - the lenght of a string
+ * @s: the string
+ * Return: lenght of a string
+ */
+int _strlen(char *s)
+{
+	int len = 0;
+
+	while (*s != '\0')
+	{
+		len++;
+		s++;
+	}
+	return (len);
+}
