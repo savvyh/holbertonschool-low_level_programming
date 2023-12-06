@@ -74,7 +74,9 @@ int main(int argc, char *argv[])
 			free(buffer);
 			exit(98);
 		}
+
 		write_file = write(file_descriptor_to, buffer, read_file);
+
 		if (file_descriptor_to == -1 || write_file == -1)
 		{
 			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
@@ -82,7 +84,6 @@ int main(int argc, char *argv[])
 			exit(99);
 		}
 		read_file = read(file_descriptor_from, buffer, 1024);
-		file_descriptor_to = open(argv[2], O_WRONLY | O_APPEND);
 	}
 
 	free(buffer);
