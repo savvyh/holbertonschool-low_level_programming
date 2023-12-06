@@ -57,7 +57,7 @@ int main(int argc, char *argv[])
 		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
 		exit(97);
 	}
-	file_descriptor_from = open(argv[1], O_RDWR | O_TRUNC | O_CREAT, 0664);
+	file_descriptor_from = open(argv[1], O_RDWR);
 	if (file_descriptor_from == -1)
 		return (-1);
 
@@ -73,7 +73,7 @@ int main(int argc, char *argv[])
 		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
 		exit(98);
 	}
-	file_descriptor_to = open(argv[2], O_RDWR | O_CREAT | O_APPEND, 0664);
+	file_descriptor_to = open(argv[2], O_RDWR | O_CREAT | O_TRUNC, 0664);
 	if (file_descriptor_to == -1)
 		return (-1);
 	write_file = write(file_descriptor_to, buffer, read_file);
