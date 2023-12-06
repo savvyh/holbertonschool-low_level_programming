@@ -2,18 +2,22 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+
 /**
  * create_buffer - function that create a buffer of 1024 bytes
  *
+ * @file: the file to allocate memory
+ *
  * Return: A pointer to the new buffer
 */
-char *create_buffer()
+char *create_buffer(char *file)
 {
 	char *buffer = malloc(1024);
 
 	if (buffer == NULL)
 	{
-		return (NULL);
+		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
+		exit(99);
 	}
 
 	return (buffer);
@@ -57,33 +61,32 @@ int main(int argc, char *argv[])
 		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
 		exit(97);
 	}
-	file_descriptor_from = open(argv[1], O_RDWR);
-	if (file_descriptor_from == -1)
-		return (-1);
 
-	buffer = create_buffer();
-	if (buffer == NULL)
-	{
-		close_file(file_descriptor_from);
-		return (-1);
-	}
+	buffer = create_buffer(argv[2]);
+
+	file_descriptor_from = open(argv[1], O_RDONLY);
 	read_file = read(file_descriptor_from, buffer, 1024);
-	if (read_file == -1)
+
+	if (file_descriptor_from == -1 || read_file == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
+		free(buffer);
 		exit(98);
 	}
-	file_descriptor_to = open(argv[2], O_RDWR | O_CREAT | O_TRUNC, 0664);
-	if (file_descriptor_to == -1)
-		return (-1);
+
+	file_descriptor_to = open(argv[2],  O_CREAT | O_WRONLY | O_TRUNC, 0664);
 	write_file = write(file_descriptor_to, buffer, read_file);
-	if (write_file == -1)
+
+	if (file_descriptor_to == -1 || write_file == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
+		free(buffer);
 		exit(99);
 	}
+
 	free(buffer);
 	close_file(file_descriptor_from);
 	close_file(file_descriptor_to);
+
 	return (0);
 }
