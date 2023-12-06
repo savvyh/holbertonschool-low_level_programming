@@ -42,7 +42,6 @@ int main(int argc, char *argv[])
 		exit(97);
 	}
 
-	buffer = create_buffer(argv[2]);
 	file_descriptor_from = open(argv[1], O_RDONLY);
 	read_file = read(file_descriptor_from, buffer, 1024);
 	file_descriptor_to = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
@@ -52,7 +51,6 @@ int main(int argc, char *argv[])
 		if (file_descriptor_from == -1 || read_file == -1)
 		{
 			dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
-			free(buffer);
 			exit(98);
 		}
 
@@ -61,13 +59,11 @@ int main(int argc, char *argv[])
 		if (file_descriptor_to == -1 || write_file == -1)
 		{
 			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
-			free(buffer);
 			exit(99);
 		}
 		read_file = read(file_descriptor_from, buffer, 1024);
 	}
 
-	free(buffer);
 	close_file(file_descriptor_from);
 	close_file(file_descriptor_to);
 
