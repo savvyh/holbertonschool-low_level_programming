@@ -21,10 +21,12 @@ void hash_table_delete(hash_table_t *ht)
 
 		while (element != NULL)
 		{
+			hash_node_t *temporary = element;
+
 			element = element->next;
-			free(element->key);
-			free(element->value);
-			free(element);
+			free(temporary->key);
+			free(temporary->value);
+			free(temporary);
 		}
 	}
 
