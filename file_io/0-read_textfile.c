@@ -27,19 +27,18 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	if (read_file == -1)
 	{
 		free(buffer);
-		close(file_descriptor);
 		return (0);
 	}
 
 	write_file = write(STDOUT_FILENO, buffer, read_file);
-	if (write_file == -1)
+	if (write_file == -1 && write_file != read_file)
 	{
 		free(buffer);
-		close(file_descriptor);
 		return (0);
 	}
 
-	close(file_descriptor);
 	free(buffer);
+	close(file_descriptor);
+
 	return (write_file);
 }
