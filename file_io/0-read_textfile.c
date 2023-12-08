@@ -1,6 +1,6 @@
 #include "main.h"
 /**
- * read_textfile - function that reads text file & prints to the POSIX stdout
+ * read_textfile - function that reads text file and prints to the stdout
  *
  * @filename: name of the file which contains letters
  * @letters: the number of letters it should read and print
