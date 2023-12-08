@@ -43,7 +43,7 @@ int main(int argc, char *argv[])
 
 	file_descriptor_from = open(argv[1], O_RDONLY);
 	read_file = read(file_descriptor_from, buffer, 1024);
-	file_descriptor_to = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
+	file_descriptor_to = open(argv[2], O_WRONLY | O_CREAT | O_TRUNC, 0664);
 
 	while (read_file > 0)
 	{
