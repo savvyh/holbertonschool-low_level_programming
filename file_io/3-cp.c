@@ -55,7 +55,7 @@ int main(int argc, char *argv[])
 
 		write_file = write(file_descriptor_to, buffer, read_file);
 
-		if (file_descriptor_to == -1 || write_file == -1 || write_file != read_file)
+		if (file_descriptor_to == -1 || write_file == -1)
 		{
 			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
 			exit(99);
