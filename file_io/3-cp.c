@@ -1,8 +1,6 @@
 #include "main.h"
 #include <stdio.h>
 
-void close_file(int file_descriptor);
-
 /**
  * close_file - print error if close the file_descriptor doesn't work
  *
@@ -45,7 +43,6 @@ int main(int argc, char *argv[])
 
 	file_descriptor_from = open(argv[1], O_RDONLY);
 	read_file = read(file_descriptor_from, buffer, 1024);
-	umask(0000);
 	file_descriptor_to = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
 
 	while (read_file > 0)
@@ -58,7 +55,7 @@ int main(int argc, char *argv[])
 
 		write_file = write(file_descriptor_to, buffer, read_file);
 
-		if (file_descriptor_to == -1 || write_file == -1)
+		if (file_descriptor_to == -1 || write_file == -1 || write_file != read_file)
 		{
 			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
 			exit(99);
